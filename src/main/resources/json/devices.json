@@ -1,0 +1,422 @@
+[
+  {
+    "model":"Galaxy J7",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"8.1.0"
+  },
+  {
+    "model":"Galaxy J8",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"Y6",
+    "brand":"Huawei",
+    "os":"Android",
+    "osVersion":"8.0.0"
+  },
+  {
+    "model":"Galaxy A5",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"6.0.1"
+  },
+  {
+    "model":"Mate 10 Pro",
+    "brand":"Huawei",
+    "os":"Android",
+    "osVersion":"8.0.0"
+  },
+  {
+    "model":"Galaxy J6",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"8.1.0"
+  },
+  {
+    "model":"Galaxy J7 Prime 2",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"7.1.1"
+  },
+  {
+    "model":"Galaxy A50",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"Galaxy J7 Prime 2",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"8.0.0"
+  },
+  {
+    "model":"Galaxy A7",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"6.0.1"
+  },
+  {
+    "model":"P10 Plus",
+    "brand":"Huawei",
+    "os":"Android",
+    "osVersion":"7.0"
+  },
+  {
+    "model":"Galaxy s10e",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"Galaxy A8+",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"8X",
+    "brand":"Honor",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"GM 9 Pro d",
+    "brand":"GM",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"MI 8 Lite",
+    "brand":"Xiaomi",
+    "os":"Android",
+    "osVersion":"8.1.0"
+  },
+  {
+    "model":"Redmi S2",
+    "brand":"Xiaomi",
+    "os":"Android",
+    "osVersion":"8.1.0"
+  },
+  {
+    "model":"Xperia X",
+    "brand":"Sony",
+    "os":"Android",
+    "osVersion":"6.0.1"
+  },
+  {
+    "model":"P20",
+    "brand":"Huawei",
+    "os":"Android",
+    "osVersion":"8.1.0"
+  },
+  {
+    "model":"GM 8",
+    "brand":"GM",
+    "os":"Android",
+    "osVersion":"8.1.0"
+  },
+  {
+    "model":"Galaxy A10s",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"P Smart",
+    "brand":"Huawei",
+    "os":"Android",
+    "osVersion":"8.0.0"
+  },
+  {
+    "model":"Galaxy Note 5",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"7.0"
+  },
+  {
+    "model":"Galaxy S8+",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"Galaxy A10",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"Galaxy A2",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"8.1.0"
+  },
+  {
+    "model":"Galaxy A6+",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"Xperia X Compact",
+    "brand":"Sony",
+    "os":"Android",
+    "osVersion":"6.0.1"
+  },
+  {
+    "model":"Q6",
+    "brand":"LG",
+    "os":"Android",
+    "osVersion":"7.1.1"
+  },
+  {
+    "model":"Redmi 5 Plus",
+    "brand":"Xiaomi",
+    "os":"Android",
+    "osVersion":"8.1.0"
+  },
+  {
+    "model":"Galaxy J7",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"6.0.1"
+  },
+  {
+    "model":"A5s",
+    "brand":"OPPO",
+    "os":"Android",
+    "osVersion":"8.1.0"
+  },
+  {
+    "model":"Moto Z",
+    "brand":"Motorola",
+    "os":"Android",
+    "osVersion":"7.1.1"
+  },
+  {
+    "model":"G3",
+    "brand":"LG",
+    "os":"Android",
+    "osVersion":"6.0"
+  },
+  {
+    "model":"Galaxy S8",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"POCOPHONE F1",
+    "brand":"Xiaomi",
+    "os":"Android",
+    "osVersion":"8.1.0"
+  },
+  {
+    "model":"Galaxy A9",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"Redmi Note 7",
+    "brand":"Xiaomi",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"Galaxy A30",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"K12",
+    "brand":"LG",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"Galaxy A8",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"Galaxy S9+",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"8.0.0"
+  },
+  {
+    "model":"Xperia X",
+    "brand":"Sony",
+    "os":"Android",
+    "osVersion":"8.0.0"
+  },
+  {
+    "model":"Desire 10",
+    "brand":"HTC",
+    "os":"Android",
+    "osVersion":"6.0.1"
+  },
+  {
+    "model":"One M8",
+    "brand":"HTC",
+    "os":"Android",
+    "osVersion":"6.0"
+  },
+  {
+    "model":"Galaxy On7",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"6.0.1"
+  },
+  {
+    "model":"P2",
+    "brand":"Lenovo",
+    "os":"Android",
+    "osVersion":"7.0"
+  },
+  {
+    "model":"Galaxy J2",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"8.1.0"
+  },
+  {
+    "model":"Galaxy A7",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"Redmi 6A",
+    "brand":"Xiaomi",
+    "os":"Android",
+    "osVersion":"8.1.0"
+  },
+  {
+    "model":"Galaxy S8",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"7.0"
+  },
+  {
+    "model":"Galaxy Note 10+",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"Galaxy A20s",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"Galaxy Note 10",
+    "brand":"Samsung",
+    "os":"Android",
+    "osVersion":"9"
+  },
+  {
+    "model":"Xperia XZ Premium",
+    "brand":"Sony",
+    "os":"Android",
+    "osVersion":"7.1.1"
+  },
+  {
+    "model":"Xperia Z5",
+    "brand":"Sony",
+    "os":"Android",
+    "osVersion":"5.1.1"
+  },
+  {
+    "model":"Xperia M4",
+    "brand":"Sony",
+    "os":"Android",
+    "osVersion":"5.0"
+  },
+  {
+    "model":"iPhone 6s",
+    "brand":"Apple",
+    "os":"iOS",
+    "osVersion":"12.4.1"
+  },
+  {
+    "model":"iPhone 7 Plus",
+    "brand":"Apple",
+    "os":"iOS",
+    "osVersion":"12.4.1"
+  },
+  {
+    "model":"iPhone X",
+    "brand":"Apple",
+    "os":"iOS",
+    "osVersion":"12.4.1"
+  },
+  {
+    "model":"iPhone 5s",
+    "brand":"Apple",
+    "os":"iOS",
+    "osVersion":"12.4.1"
+  },
+  {
+    "model":"iPhone 8",
+    "brand":"Apple",
+    "os":"iOS",
+    "osVersion":"12.4"
+  },
+  {
+    "model":"iPhone XR",
+    "brand":"Apple",
+    "os":"iOS",
+    "osVersion":"12.4.1"
+  },
+  {
+    "model":"iPhone 5s",
+    "brand":"Apple",
+    "os":"iOS",
+    "osVersion":"12.4.3"
+  },
+  {
+    "model":"iPhone 7",
+    "brand":"Apple",
+    "os":"iOS",
+    "osVersion":"12.4.1"
+  },
+  {
+    "model":"iPhone 8 Plus",
+    "brand":"Apple",
+    "os":"iOS",
+    "osVersion":"12.2"
+  },
+  {
+    "model":"iPhone 7 Plus",
+    "brand":"Apple",
+    "os":"iOS",
+    "osVersion":"11.4"
+  },
+  {
+    "model":"iPhone 6s Plus",
+    "brand":"Apple",
+    "os":"iOS",
+    "osVersion":"12.4.1"
+  },
+  {
+    "model":"iPhone SE",
+    "brand":"Apple",
+    "os":"iOS",
+    "osVersion":"12.4.1"
+  },
+  {
+    "model":"iPhone 6",
+    "brand":"Apple",
+    "os":"iOS",
+    "osVersion":"11.4"
+  }
+]

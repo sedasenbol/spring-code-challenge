@@ -1,34 +1,35 @@
 package com.canovate.scc.service;
 
 import com.canovate.scc.model.Device;
-import com.canovate.scc.repository.DeviceRepository;
+import com.canovate.scc.repository.DeviceCrudRepository;
+import com.canovate.scc.repository.DeviceJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class DeviceServiceImpl implements DeviceService{
 
-    private DeviceRepository deviceRepository;
+    private DeviceCrudRepository deviceCrudRepository;
+    private DeviceJpaRepository deviceJpaRepository;
 
     @Autowired
-    public DeviceServiceImpl(DeviceRepository deviceRepository) {
-        this.deviceRepository = deviceRepository;
+    public DeviceServiceImpl(DeviceCrudRepository deviceCrudRepository, DeviceJpaRepository deviceJpaRepository) {
+        this.deviceCrudRepository = deviceCrudRepository;
+        this.deviceJpaRepository = deviceJpaRepository;
     }
 
     @Override
     public Iterable<Device> list() {
-        return deviceRepository.findAll();
+        return deviceCrudRepository.findAll();
     }
 
     @Override
-    public Device save(Device device) {
-        return deviceRepository.save(device);
+    public Long save(Device device) {
+        return deviceCrudRepository.save(device).getId();
     }
 
     @Override
-    public Iterable<Device> save(List<Device> devices) {
-        return deviceRepository.saveAll(devices);
+    public Boolean exists(Device device){
+        return deviceJpaRepository.existsByBrandAndModelAndOsAndOsVersion(device.getBrand(), device.getModel(), device.getOs(), device.getOsVersion());
     }
 }

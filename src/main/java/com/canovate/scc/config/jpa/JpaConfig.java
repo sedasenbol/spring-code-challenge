@@ -1,4 +1,4 @@
-package com.canovate.scc.jpa.config;
+package com.canovate.scc.config.jpa;
 
 import com.canovate.scc.model.Device;
 import org.hibernate.SessionFactory;

@@ -1,4 +1,4 @@
-package com.canovate.scc.data.saver;
+package com.canovate.scc.model.data.saver;
 
 import aj.org.objectweb.asm.TypeReference;
 import com.canovate.scc.model.Device;
@@ -39,31 +39,6 @@ public class JsonDataSaver {
         return new ArrayList<>();
     }
 
-    public void saveDevice(Device device)
-    {
-        if (!validateDevice(device))
-        {
-            System.out.println("Unable to save the device; device has empty field(s)");
-        }
-        else if (!deviceService.exists(device))
-        {
-            Long id = deviceService.save(device);
-            System.out.println("Device was saved with id "+ id);
-        }
-        else
-        {
-            System.out.println("Unable to save the device; duplicate entry");
-        }
-    }
-
-    public boolean validateDevice(Device device)
-    {
-        return !device.getBrand().isEmpty() &&
-                !device.getModel().isEmpty() &&
-                !device.getOs().isEmpty() &&
-                !device.getOsVersion().isEmpty();
-    }
-
     @Bean
     public CommandLineRunner runner() {
         return args -> {
@@ -72,7 +47,7 @@ public class JsonDataSaver {
 
             for (Device device : devices)
             {
-               saveDevice(device);
+               deviceService.saveDevice(device);
             }
 
         };

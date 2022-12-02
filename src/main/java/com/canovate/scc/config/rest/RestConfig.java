@@ -13,7 +13,7 @@ public class RestConfig implements RepositoryRestConfigurer {
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration restConfig, CorsRegistry cors) {
         ExposureConfiguration config = restConfig.getExposureConfiguration();
-        //config.forDomainType(SecurityProperties.User.class).disablePutForCreation();
-        config.withItemExposure((metadata, httpMethods) -> httpMethods.enable(HttpMethod.PATCH));
+        config.withItemExposure((metadata, httpMethods) -> httpMethods.enable(HttpMethod.POST));
+        config.withItemExposure((metadata, httpMethods) -> httpMethods.enable(HttpMethod.GET));
     }
 }

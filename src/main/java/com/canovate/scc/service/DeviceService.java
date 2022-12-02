@@ -1,23 +1,18 @@
 package com.canovate.scc.service;
 
 import com.canovate.scc.model.Device;
+import org.springframework.data.domain.Page;
 
 public interface DeviceService {
-//
-//    Iterable<Device> list();
 
     Long create(Device device);
 
     Boolean exists(Device device);
 
-    void saveDevice(Device device);
+    String saveDevice(Device device);
 
     boolean validateDevice(Device device);
 
-//
-//    Page<Device> findByBrand(String brand, Integer page, Integer size);
-//
-//    Page<Device> findByBrandAndModel(String brand, String model, Integer page, Integer size);
-//
-//    Page<Device> findByModel(String model, Integer page, Integer size);
+    Page<Device> findBy(String brand, String model, String os, String osVersion, int page, int size);
+
 }

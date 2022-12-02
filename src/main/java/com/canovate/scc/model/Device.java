@@ -11,13 +11,14 @@ import java.io.Serializable;
 
 @Entity
 @AllArgsConstructor
-@Getter@Setter
-@Table(name="devices")
+@Getter
+@Setter
+@Table(name = "devices")
 public class Device implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id", unique = true)
+    @Column(name = "id", unique = true)
     private Long id;
 
     @Column(name = "brand")
@@ -41,15 +42,14 @@ public class Device implements Serializable {
 
     }
 
-    public Device(@NotNull String brand,@NotNull String model,@NotNull String os,@NotNull String osVersion) {
+    public Device(@NotNull String brand, @NotNull String model, @NotNull String os, @NotNull String osVersion) {
         this.brand = brand;
         this.model = model;
         this.osVersion = osVersion;
 
         try {
             this.os = DeviceOs.valueOf(os);
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }

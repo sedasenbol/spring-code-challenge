@@ -2,26 +2,33 @@ package com.canovate.scc.service;
 
 import com.canovate.scc.model.Device;
 import com.canovate.scc.repository.DeviceCrudRepository;
+import com.canovate.scc.repository.DeviceNativeSearchRepository;
 import com.canovate.scc.repository.DeviceJpaRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DeviceServiceImpl implements DeviceService{
+public class DeviceServiceImpl implements DeviceService {
 
-    private DeviceCrudRepository deviceCrudRepository;
-    private DeviceJpaRepository deviceJpaRepository;
+    private final DeviceCrudRepository deviceCrudRepository;
+    private final DeviceJpaRepository deviceJpaRepository;
+
+    private final EntityManager entityManager;
+
+    private final DeviceNativeSearchRepository deviceNativeSearchRepository;
 
     @Autowired
-    public DeviceServiceImpl(DeviceCrudRepository deviceCrudRepository, DeviceJpaRepository deviceJpaRepository) {
+    public DeviceServiceImpl(DeviceCrudRepository deviceCrudRepository, DeviceJpaRepository deviceJpaRepository, EntityManager entityManager, DeviceNativeSearchRepository deviceNativeSearchRepository) {
         this.deviceCrudRepository = deviceCrudRepository;
         this.deviceJpaRepository = deviceJpaRepository;
+        this.entityManager = entityManager;
+        this.deviceNativeSearchRepository = deviceNativeSearchRepository;
     }
-
-//    @Override
-//    public Iterable<Device> list() {
-//        return deviceCrudRepository.findAll();
-//    }
 
     @Override
     public Long create(Device device) {
@@ -29,55 +36,75 @@ public class DeviceServiceImpl implements DeviceService{
     }
 
     @Override
-    public Boolean exists(Device device){
+    public Boolean exists(Device device) {
         return deviceJpaRepository.existsByBrandAndModelAndOsAndOsVersion(device.getBrand(), device.getModel(), device.getOs(), device.getOsVersion());
     }
 
+    @Override
+    public Page<Device> findBy(String brand, String model, String os, String osVersion, int page, int size) {
 
-//
-//    @Override
-//    public Page<Device> findByBrand(String brand, Integer page, Integer size)
-//    {
-//        PageRequest pageRequest = PageRequest.of(page,size);
-//
-//        return deviceJpaRepository.findByBrand(brand, pageRequest);
-//    }
-//
-//    @Override
-//    public Page<Device> findByBrandAndModel(String brand, String model, Integer page, Integer size) {
-//        PageRequest pageRequest = PageRequest.of(page,size);
-//
-//        return deviceJpaRepository.findByBrandAndModel(brand, model, pageRequest);
-//    }
-//
-//    @Override
-//    public Page<Device> findByModel(String model, Integer page, Integer size) {
-//        PageRequest pageRequest = PageRequest.of(page,size);
-//
-//        return deviceJpaRepository.findByModel(model, pageRequest);
-//    }
+        Pageable pageable = PageRequest.of(page, size);
+
+        Query query = buildQuery(brand, model, os, osVersion, pageable);
+
+        return deviceNativeSearchRepository.searchNativeBy(query);
+    }
+
+    public Query buildQuery(String brand, String model, String os, String osVersion, Pageable pageable) {
+
+        String s = "select d from public.devices d";
+
+        if (brand == null && model == null && os == null && osVersion == null) {
+            return entityManager.createNativeQuery(s.toString());
+        } else {
+            boolean shouldUseAnd = false;
+            s += " where ";
+            if (brand != null) {
+                s += " lower(d.brand) = " + "'" + brand.toLowerCase() + "'";
+                shouldUseAnd = true;
+            }
+            if (model != null) {
+                if (shouldUseAnd) {
+                    s += " and ";
+                }
+
+                s += " lower(d.model) = " + "'" + model.toLowerCase() + "'";
+                shouldUseAnd = true;
+            }
+            if (os != null) {
+                if (shouldUseAnd) {
+                    s += " and ";
+                }
+
+                s += " lower(d.os) = " + "'" + os.toLowerCase() + "'";
+                shouldUseAnd = true;
+            }
+            if (osVersion != null) {
+                if (shouldUseAnd) {
+                    s += " and ";
+                }
+
+                s += " lower(d.os_version) = " + "'" + osVersion.toLowerCase() + "'";
+            }
+        }
+
+        return entityManager.createNativeQuery(PagedQueryBuilder.build(s, "_alias", pageable));
+    }
 
     @Override
-    public void saveDevice(Device device)
-    {
-        if (!validateDevice(device))
-        {
-            System.out.println("Unable to save the device; device has empty field(s)");
-        }
-        else if (!exists(device))
-        {
+    public String saveDevice(Device device) {
+        if (!validateDevice(device)) {
+            return "Unable to save the device; device has empty field(s)";
+        } else if (!exists(device)) {
             Long id = create(device);
-            System.out.println("Device was saved with id "+ id);
-        }
-        else
-        {
-            System.out.println("Unable to save the device; duplicate entry");
+            return "Device was saved with id " + id;
+        } else {
+            return "Unable to save the device; duplicate entry";
         }
     }
 
     @Override
-    public boolean validateDevice(Device device)
-    {
+    public boolean validateDevice(Device device) {
         return !device.getBrand().isEmpty() &&
                 !device.getModel().isEmpty() &&
                 !device.getOs().toString().isEmpty() &&

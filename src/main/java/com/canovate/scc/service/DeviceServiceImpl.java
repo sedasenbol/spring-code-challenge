@@ -2,15 +2,16 @@ package com.canovate.scc.service;
 
 import com.canovate.scc.model.Device;
 import com.canovate.scc.repository.DeviceCrudRepository;
-import com.canovate.scc.repository.DeviceNativeSearchRepository;
 import com.canovate.scc.repository.DeviceJpaRepository;
+import com.canovate.scc.repository.DeviceNativeSearchRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class DeviceServiceImpl implements DeviceService {
@@ -41,7 +42,7 @@ public class DeviceServiceImpl implements DeviceService {
     }
 
     @Override
-    public Page<Device> findBy(String brand, String model, String os, String osVersion, int page, int size) {
+    public List<Device> findBy(String brand, String model, String os, String osVersion, int page, int size) {
 
         Pageable pageable = PageRequest.of(page, size);
 
@@ -88,7 +89,7 @@ public class DeviceServiceImpl implements DeviceService {
             }
         }
 
-        return entityManager.createNativeQuery(PagedQueryBuilder.build(s, "_alias", pageable));
+        return entityManager.createNativeQuery(s);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.canovate.scc.controller;
 
+import com.canovate.scc.dto.DeviceDto;
 import com.canovate.scc.model.Device;
 import com.canovate.scc.service.DeviceService;
 import lombok.extern.slf4j.Slf4j;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
@@ -46,17 +48,17 @@ public class DeviceController {
     @GetMapping(value = "/search")
     @ResponseBody
     @ExceptionHandler(RuntimeException.class)
-    public List<Device> findBy(@RequestParam(value = "page", defaultValue = "0", required = false) Integer page,
+    public List<DeviceDto> findBy(@RequestParam(value = "page", defaultValue = "0", required = false) Integer page,
                                   @RequestParam(value = "size", defaultValue = "5", required = false) Integer size,
                                   @RequestParam(value = "brand", required = false) String brand,
                                   @RequestParam(value = "model", required = false) String model,
                                   @RequestParam(value = "os", required = false) String os,
                                   @RequestParam(value = "osVersion", required = false) String osVersion) {
 
-        List<Device> entities = deviceService.findBy(brand, model, os, osVersion, page, size);
-        return entities;
-        //return entities.stream().map(device -> modelMapper.map(device, DeviceDto.class))
-        //        .collect(Collectors.toList());
+        List<Device> devices= deviceService.findBy(brand, model, os, osVersion, page, size);
+        return devices.stream().map(device -> modelMapper.map(device, DeviceDto.class))
+                .collect(Collectors.toList());
     }
+
 }
 

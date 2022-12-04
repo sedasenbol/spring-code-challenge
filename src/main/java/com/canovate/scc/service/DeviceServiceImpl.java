@@ -53,7 +53,7 @@ public class DeviceServiceImpl implements DeviceService {
 
     public Query buildQuery(String brand, String model, String os, String osVersion, Pageable pageable) {
 
-        String s = "select d from public.devices d";
+        String s = "select d.* from public.devices d";
 
         if (brand == null && model == null && os == null && osVersion == null) {
             return entityManager.createNativeQuery(s.toString());
@@ -89,7 +89,7 @@ public class DeviceServiceImpl implements DeviceService {
             }
         }
 
-        return entityManager.createNativeQuery(s);
+        return entityManager.createNativeQuery(s, Device.class);
     }
 
     @Override
